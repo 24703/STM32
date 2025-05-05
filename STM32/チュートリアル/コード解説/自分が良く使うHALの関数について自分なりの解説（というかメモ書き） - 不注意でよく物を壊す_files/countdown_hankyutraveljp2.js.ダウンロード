@@ -1,0 +1,165 @@
+function timer() {
+    var isBannerLoaded = setInterval(function () {
+        //console.log("loading...");
+        if (document.getElementsByClassName('f')[0] != undefined && document.getElementsByClassName('f')[0].style.width != "" && document.getElementsByClassName('f')[0].style.height != "") {
+            runScript();
+            clearInterval(isBannerLoaded);
+        }
+
+    }, 100);
+
+    function runScript() {
+        var setStartTime = function () {
+            //Get start date as milliseconds
+            var startDate = new Date('2023/05/24 00:00:00').getTime();
+
+            //Get todays date and time based of UTC
+            var JSTfromUTC = ((new Date().getTime()) + (new Date().getTimezoneOffset() * 60 * 1000)) + 32400000;
+            var currentDate = new Date(JSTfromUTC).getTime();
+
+            //Find the distance between now an the count down date as global variable
+            distance = startDate - currentDate;
+
+            return distance;
+        };
+
+        var setEndTime = function () {
+            //Get End Date as milliseconds
+            var endDate = new Date('2023/05/31 18:00:00').getTime();
+
+            //Get todays date and time based of UTC
+            var JSTfromUTC = ((new Date().getTime()) + (new Date().getTimezoneOffset() * 60 * 1000)) + 32400000;
+            var currentDate = new Date(JSTfromUTC).getTime();
+
+            //Find the distance between now an the count down date as global variable
+            distance = endDate - currentDate;
+
+            return distance;
+        };
+
+
+        if ((setStartTime() < 0) && (setEndTime() > 0)) {
+
+            // remove countdown element after 20 seconds
+            setTimeout(function () {
+                if (document.getElementsByClassName('f')[0] != undefined && document.getElementsByClassName('f')[0].style.width != "" && document.getElementsByClassName('f')[0].style.height != "") {
+                    var el = document.getElementsByClassName('f')[0];
+                    el.parentNode.removeChild(el);
+                }
+            }, 20000);
+
+            // console.log("STARTED");
+            var style = function () {
+                couponflag = document.getElementsByClassName('f')[0];
+
+                //create style tag in head tag
+                create_style = document.createElement("style");
+                create_style.type = "text/css";
+                document.getElementsByTagName('head')[0].appendChild(create_style);
+                style_code = "";
+
+                //create div tag for timer days under class f
+                create_ele_d = document.createElement("div");
+                create_ele_d.id = "timerDays";
+                couponflag.appendChild(create_ele_d);
+                new_ele_d = document.getElementById('timerDays');
+
+            };
+
+            //For size 300x250
+            if (document.getElementsByClassName('f')[0].style.width == "300px" && document.getElementsByClassName('f')[0].style.height == "250px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 16px; color: white; bottom: 18px; font:\"Meiryo\"; font-weight: bold;}"
+                create_style.innerHTML = style_code;
+
+            }
+
+            //For size 300x600
+            else if (document.getElementsByClassName('f')[0].style.width == "300px" && document.getElementsByClassName('f')[0].style.height == "600px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 16px; color: white; bottom: 18px; font:\"Meiryo\"; font-weight: bold;}"
+                create_style.innerHTML = style_code;
+
+            }
+
+            //For size 336x280
+            else if (document.getElementsByClassName('f')[0].style.width == "336px" && document.getElementsByClassName('f')[0].style.height == "280px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 17px; color: white; bottom: 18px; font:\"Meiryo\"; font-weight: bold;}"
+                create_style.innerHTML = style_code;
+
+            }
+
+            //For size 728x90
+            else if (document.getElementsByClassName('f')[0].style.width == "728px" && document.getElementsByClassName('f')[0].style.height == "90px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 14px; color: white; bottom: 14px; font:\"Meiryo\"; font-weight: bold; padding-left: 450px}"
+                create_style.innerHTML = style_code;
+            }
+
+            //For size 320x50
+            else if (document.getElementsByClassName('f')[0].style.width == "320px" && document.getElementsByClassName('f')[0].style.height == "50px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 8px; color: white; bottom: 9px; font:\"Meiryo\"; font-weight: bold; padding-left: 180px}"
+                create_style.innerHTML = style_code;
+            }
+
+            //For size 160x600
+            else if (document.getElementsByClassName('f')[0].style.width == "160px" && document.getElementsByClassName('f')[0].style.height == "600px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 9px; color: white; bottom: 12px; font:\"Meiryo\"; font-weight: bold;}"
+                create_style.innerHTML = style_code;
+            }
+
+
+            //For size 970x90
+            else if (document.getElementsByClassName('f')[0].style.width == "970px" && document.getElementsByClassName('f')[0].style.height == "90px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 19px; color: white; bottom: 20px; font:\"Meiryo\"; font-weight: bold; padding-left: 620px}"
+                create_style.innerHTML = style_code;
+            }
+
+            //For size 200x200
+            else if (document.getElementsByClassName('f')[0].style.width == "200px" && document.getElementsByClassName('f')[0].style.height == "200px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 11px; color: white; bottom: 14px; font:\"Meiryo\"; font-weight: bold;}"
+                create_style.innerHTML = style_code;
+            }
+
+            //For size 320x100
+            else if (document.getElementsByClassName('f')[0].style.width == "320px" && document.getElementsByClassName('f')[0].style.height == "100px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 9px; color: white; bottom: 12px; font:\"Meiryo\"; font-weight: bold; padding-left: 160px}"
+                create_style.innerHTML = style_code;
+            }
+
+            // For size 468x60
+            else if (document.getElementsByClassName('f')[0].style.width == "468px" && document.getElementsByClassName('f')[0].style.height == "60px" && document.getElementsByClassName('g align')[0]) {
+                style();
+                style_code += "div #timerDays {position: relative; z-index: 100; opacity:1 ;font-size: 9px; color: white; bottom: 10px; font:\"Meiryo\"; font-weight: bold; padding-left: 300px}"
+                create_style.innerHTML = style_code;
+            }
+
+            var dynamicTimer = function () {
+                setEndTime();
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                new_ele_d.innerHTML = "残り <span  style='font-size: 1.2em;'>" + days + "</span> 日 <span  style='font-size: 1.2em;'>" 
+                + hours + "</span> 時間 <span  style='font-size: 1.2em;'>" + minutes + "</span> 分 <span  style='font-size: 1.2em;'>" 
+                + seconds + "</span> 秒"
+            };
+
+            if (document.getElementsByClassName('d coupon zContainer alignClickable')[0] && document.getElementById('timerDays')) {
+                var timer = setInterval(dynamicTimer, 1000);
+            }
+        }
+
+    }
+}
+
+if (new Date('2023-05-24T00:00:00') < new Date() && new Date('2023-05-31T18:00:00') > new Date()) {
+    timer();
+}
