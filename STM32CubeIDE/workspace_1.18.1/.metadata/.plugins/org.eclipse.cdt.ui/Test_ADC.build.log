@@ -1,0 +1,26 @@
+18:12:14 **** Incremental Build of configuration Debug for project Test_ADC ****
+make -j8 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F302x8 -c -I../Core/Inc -I../Drivers/STM32F3xx_HAL_Driver/Inc/Legacy -I../Drivers/STM32F3xx_HAL_Driver/Inc -I../Drivers/CMSIS/Device/ST/STM32F3xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:101:11: warning: implicit declaration of function 'HAL_ADC_Start'; did you mean 'HAL_DMA_Start'? [-Wimplicit-function-declaration]
+  101 |           HAL_ADC_Start(&hadc1);
+      |           ^~~~~~~~~~~~~
+      |           HAL_DMA_Start
+../Core/Src/main.c:101:26: error: 'hadc1' undeclared (first use in this function)
+  101 |           HAL_ADC_Start(&hadc1);
+      |                          ^~~~~
+../Core/Src/main.c:101:26: note: each undeclared identifier is reported only once for each function it appears in
+../Core/Src/main.c:102:14: warning: implicit declaration of function 'HAL_ADC_PollForConversion' [-Wimplicit-function-declaration]
+  102 |           if(HAL_ADC_PollForConversion(&hadc1,1000) == HAL_OK){
+      |              ^~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:103:33: warning: implicit declaration of function 'HAL_ADC_GetValue' [-Wimplicit-function-declaration]
+  103 |                   analogValue = HAL_ADC_GetValue(&hadc1);
+      |                                 ^~~~~~~~~~~~~~~~
+../Core/Src/main.c:105:11: warning: implicit declaration of function 'HAL_ADC_Stop' [-Wimplicit-function-declaration]
+  105 |           HAL_ADC_Stop(&hadc1);
+      |           ^~~~~~~~~~~~
+make: *** [Core/Src/subdir.mk:34: Core/Src/main.o] Error 1
+"make -j8 all" terminated with exit code 2. Build might be incomplete.
+
+18:12:15 Build Failed. 2 errors, 4 warnings. (took 354ms)
+
